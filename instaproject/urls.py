@@ -22,5 +22,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('', auth_views.LoginView.as_view(), name='login' ),
     # path('logout/', auth_views.LogoutView().as_view(), name='logout' ),
-    path('app', include('instaapp.urls'))
+    path('app/', include('instaapp.urls'))
 ]

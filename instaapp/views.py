@@ -9,7 +9,7 @@ def index(request):
 def post_image(request):
     current_user = request.user
     if request.method == 'POST':
-        form = ImageRegistrationForm()
+        form = ImageRegistrationForm(request.POST, request.FILES)
         if form.is_valid():
             form_to_be_saved = form.save(commit=False)
             form_to_be_saved.posted_by = current_user

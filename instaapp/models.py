@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Profile(models.Model):
     profile_photo = models.ImageField()
@@ -11,6 +12,7 @@ class Profile(models.Model):
         return self.delete()
 
 class Image(models.Model):
+    posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField()
     image_name = models.CharField(max_length = 40)
     image_caption = models.CharField(max_length = 20)

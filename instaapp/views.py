@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import ImageRegistrationForm
+from .models import Image
 
 def index(request):
-
+    images = Image.get_all_images()
     title = 'Home'
-    return render(request, 'home.html', {'title': title})
+    return render(request, 'home.html', {'title': title, 'images': images})
 
 def post_image(request):
     current_user = request.user

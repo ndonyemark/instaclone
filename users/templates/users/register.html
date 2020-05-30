@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
     <div class="container">
@@ -8,7 +8,16 @@
 
             </div>
             <div class="col-lg-6 col-md-6">
-                {{form.as_p}}
+                <fieldset>
+                    <legend class="border-bottom">Register</legend>
+                    <form action="" method="POST">
+                        {{form | crispy}}
+                        <button class="btn btn-info" type="submit">Sign Up</button>
+                    </form>
+                </fieldset>
+                <div class="border-top mt-3">
+                    <small class="text-muted">Already have an account? <a href="">Login</a></small>
+                </div>
             </div>
         </div>
     </div>

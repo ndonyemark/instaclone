@@ -1,6 +1,11 @@
 from django import forms
-from .models import Image
+from .models import Image,Comments
 
+class Comments(forms.ModelForm):
+    class Meta:
+        model = Comments
+        exclude = ['image_comment']
+        fields = ['comment']
 
 class ImageRegistrationForm(forms.ModelForm):
     class Meta:

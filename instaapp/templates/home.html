@@ -12,7 +12,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{image.image_caption}}</h5>
                       <p class="card-text">{{image.image_name}}</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <a href="{% url 'single_image' image_id=image.id %}" class="btn btn-primary">view single image</a>
                     </div>
                   </div>
                 {% endfor %}

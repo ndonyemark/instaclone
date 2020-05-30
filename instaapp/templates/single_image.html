@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="{{image.image.url}}" class="img-fluid" alt="">
+            </div>
+            <div class="col">
+                <h1>{{image.image_caption}}</h1>
+                <p>{{image.image_name}}</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    

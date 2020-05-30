@@ -14,7 +14,6 @@ class Image(models.Model):
     image = models.ImageField()
     image_name = models.CharField(max_length = 40)
     image_caption = models.CharField(max_length = 20)
-    image_comments = models.ManyToManyField(related_name='comment')
     image_profile_foreign_key = models.ForeignKey(on_delete=models.CASCADE)
 
     def save_image(self):
@@ -32,6 +31,19 @@ class Image(models.Model):
     def get_all_images(cls):
         all_images = Image.objects.all()
         return all_images
+    
+    def __str__(self):
+        return self.image_caption
 
 class Comments(models.Model):
     comment = models.TextField()
+    image_comment = models.ForeignKey(Image, on_delete=models.CASCADE)
+
+    def save_comment(self):
+        return self.save()
+    
+    def delete_comment(self):
+        return self.delete()
+
+    def __str__(self):
+        return self.comment

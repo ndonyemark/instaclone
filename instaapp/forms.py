@@ -1,7 +1,7 @@
 from django import forms
 from .models import Image,Comments
 
-class Comments(forms.ModelForm):
+class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comments
         exclude = ['image_comment']

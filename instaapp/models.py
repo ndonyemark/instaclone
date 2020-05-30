@@ -16,8 +16,8 @@ class Image(models.Model):
     image = models.ImageField(upload_to='userImages')
     image_name = models.CharField(max_length = 40)
     image_caption = models.CharField(max_length = 20)
-    image_profile_foreign_key = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    pub_date = models.DateField()
+    # image_profile_foreign_key = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
     def save_image(self):
         return self.save()

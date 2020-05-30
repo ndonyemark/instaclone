@@ -21,3 +21,10 @@ def post_image(request):
 
     title = 'post image'
     return render(request, 'post_image.html', {'title': title, 'form': form})
+
+def single_image_details(request, image_id):
+    single_image = Image.get_single_image_details(image_id)
+    title = 'single image details'
+    return render(request, 'single_image.html', {'title': title, 'image': single_image})
+
+

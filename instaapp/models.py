@@ -13,10 +13,11 @@ class Profile(models.Model):
 
 class Image(models.Model):
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='userImages')
     image_name = models.CharField(max_length = 40)
     image_caption = models.CharField(max_length = 20)
     image_profile_foreign_key = models.ForeignKey(on_delete=models.CASCADE)
+    pub_date = models.DateField()
 
     def save_image(self):
         return self.save()

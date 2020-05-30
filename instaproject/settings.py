@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'instaapp',
     'users',
     'bootstrap4',
-    'crispy_forms'
+    'crispy_forms',
+    'tinymce'
 ]
 
 MIDDLEWARE = [

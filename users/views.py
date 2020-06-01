@@ -14,3 +14,8 @@ def register(request):
         form = UserRegistration()
     title = 'User Registration'
     return render(request, 'users/register.html', {'form': form, 'title': title})
+
+def profile(request):
+
+    title = 'Profile'
+    return render(request, 'profile.html', {'title': title})

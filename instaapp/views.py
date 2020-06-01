@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import ImageRegistrationForm, CommentsForm
+from .forms import ImageRegistrationForm
 from .models import Image
 
 def index(request):
@@ -24,17 +24,8 @@ def post_image(request):
 
 def single_image_details(request, image_id):
     single_image = Image.get_single_image_details(image_id)
-    if request.method == 'POST':
-        comments_form = CommentsForm(request.POST)
-        if comments_form.is_valid():
-            comment_save = comments_form.save(commit=False)
-            comment_save.image_comment = image_id
-            comment_save.save()
-            return redirect('single_image')
-    else:
-        comments_form = CommentsForm()
 
     title = 'single image details'
-    return render(request, 'single_image.html', {'title': title, 'image': single_image, 'form': comments_form})
+    return render(request, 'single_image.html', {'title': title, 'image': single_image})
 
 

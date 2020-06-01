@@ -1,16 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Profile(models.Model):
-    profile_photo = models.ImageField()
-    profile_bio = models.TextField()
-
-    def save_profile(self):
-        return self.save()
-    
-    def delete_profile(self):
-        return self.delete()
-
 class Image(models.Model):
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='userImages')
@@ -37,16 +27,3 @@ class Image(models.Model):
     
     def __str__(self):
         return self.image_caption
-
-class Comments(models.Model):
-    comment = models.TextField()
-    image_comment = models.ForeignKey(Image, on_delete=models.CASCADE)
-
-    def save_comment(self):
-        return self.save()
-    
-    def delete_comment(self):
-        return self.delete()
-
-    def __str__(self):
-        return self.comment

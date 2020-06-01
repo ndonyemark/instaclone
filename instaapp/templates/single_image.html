@@ -13,11 +13,6 @@
                 <h1>{{image.image_caption}}</h1>
                 <p>{{image.image_name}}</p>
                 <p>{{image.pub_date}}</p>
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    {{form | crispy}}
-                    <button type="submit" class="btn btn-info">Post comment</button>
-                </form>
             </div>
         </div>
     </div>

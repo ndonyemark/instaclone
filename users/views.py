@@ -18,4 +18,4 @@ def register(request):
 def profile(request):
 
     title = 'Profile'
-    return render(request, 'profile.html', {'title': title})
+    return render(request, 'users/profile.html', {'title': title})

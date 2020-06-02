@@ -27,3 +27,9 @@ class Image(models.Model):
     
     def __str__(self):
         return self.image_caption
+
+class Comments(models.Model):
+    comment = models.TextField()
+    posted_by = models.OneToOneField(User, on_delete = models.CASCADE)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)

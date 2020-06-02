@@ -5,14 +5,25 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                
+                <a href="{% url 'post_image' %}" class="btn btn-info">Post</a>
                 {% for image in images %}
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">{{image.image_caption}}</h5>
-                      <p class="card-text">{{image.image_name}}</p>
-                      <a href="{% url 'single_image' image_id=image.id %}" class="btn btn-primary">view single image</a>
+                <div class="card mb-3 mt-3" style="width: 500px;">
+                    <div class="card-header d-flex">
+                        <img src="{{image.posted_by.profile.profile_pic.url}}" alt="..." class="rounded-image img-fluid" style="width: 30px; height: 30px">
+                        <h5 class="ml-3"><small class="text-secondary">{{image.posted_by}}</small></h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap">
+                      <h5 class="card-title ml-2">{{image.image_caption}}</h5>
+                      <p class="card-text ml-2">{{image.image_name}}</p>
+                      <h4><small class="text-secondary ml-2">Comments</small></h4>
+                      <p class="ml-2"><small>{{image.pub_date}}</small></p>
+                      <!-- <a href="{% url 'single_image' image_id=image.id %}" class="btn btn-primary">view single image</a> -->
+                    </div>
+                    <div class="card-footer">
+                        <form action="">
+                            <input type="text" placeholder="post a comment" class="form-control text-center w-75" style="border: 0; border-bottom: 2px; outline: none;">
+                        </form>
                     </div>
                   </div>
                 {% endfor %}

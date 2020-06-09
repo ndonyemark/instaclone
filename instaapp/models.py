@@ -9,6 +9,7 @@ class Image(models.Model):
     # image_profile_foreign_key = models.ForeignKey(Profile, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
 
+
     def save_image(self):
         return self.save()
     
@@ -25,11 +26,30 @@ class Image(models.Model):
         all_images = Image.objects.all()
         return all_images
     
+    @classmethod
+    def get_user_images(cls, poster):
+        user_images = Image.objects.filter(posted_by=poster)
+        return user_images
+
     def __str__(self):
         return self.image_caption
+    
+    @classmethod
+    def search_by_caption(cls, seach_term):
+        news = cls.objects.filter(image)
 
 class Comments(models.Model):
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='comments')
     comment = models.TextField()
-    posted_by = models.OneToOneField(User, on_delete = models.CASCADE)
+    posted_by = models.ForeignKey(User, on_delete = models.CASCADE)
     date_posted = models.DateTimeField(auto_now_add=True)
-    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+
+    @property
+    def count_comments(self):
+        comments = self.comment.count()
+        return comments
+
+    @classmethod
+    def get_image_comments(cls, id):
+        comments = Comments.objects.filter(image__pk = id)
+        return comments

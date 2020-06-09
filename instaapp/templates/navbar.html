@@ -5,16 +5,16 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <form method="GET" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search">Search</button>
       </form>
-      <ul class="navbar-nav mr-auto ml-5">
-        <li class="nav-item"><a href="" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="" class="nav-link">create message</a></li>
-        <li class="nav-item"><a href="" class="nav-link">discover</a></li>
-        <li class="nav-item"><a href="" class="nav-link">logout</a></li>
-        <li class="nav-item"><a href="" class="nav-link">profile</a></li>
+      <ul class="navbar-nav nav-right ml-5">
+        <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="{% url 'post_image' %}" class="nav-link">create message</a></li>
+        <!-- <li class="nav-item"><a href="" class="nav-link">discover</a></li> -->
+        <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">logout</a></li>
+        <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">profile</a></li>
       </ul>
     </div>
   </nav>

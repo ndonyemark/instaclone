@@ -6,6 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_bio = models.TextField()
     profile_pic = models.ImageField(upload_to='profile_pics')
+    phone_number = models.IntegerField(null=True)
 
     def __str__(self):
         return self.user.username

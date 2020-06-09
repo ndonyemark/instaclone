@@ -16,14 +16,12 @@
                         <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap">
                       <h5 class="card-title ml-2">{{image.image_caption}}</h5>
                       <p class="card-text ml-2">{{image.image_name}}</p>
-                      <h4><small class="text-secondary ml-2">Comments</small></h4>
+                      {% for comment in comments %}
+                          <p>{{comment.comment}}</p>
+                      {% endfor %}
+                          
                       <p class="ml-2"><small>{{image.pub_date}}</small></p>
                       <!-- <a href="{% url 'single_image' image_id=image.id %}" class="btn btn-primary">view single image</a> -->
-                    </div>
-                    <div class="card-footer">
-                        <form action="">
-                            <input type="text" placeholder="post a comment" class="form-control text-center w-75" style="border: 0; border-bottom: 2px; outline: none;">
-                        </form>
                     </div>
                   </div>
                 {% endfor %}

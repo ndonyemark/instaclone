@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load bootstrap4 %}
 
 {% block content %}
     <div class="container">
@@ -9,12 +8,9 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <form action="" method="POST">
-                <fieldset>
-                    <legend class="border-bottom">Register</legend>
                         {% csrf_token %}
-                        {{form | crispy}}
+                        {% bootstrap_form form %}
                         <button class="btn btn-info" type="submit">Sign Up</button>
-                </fieldset>
                 </form>
                 <div class="border-top mt-3">
                     <small class="text-muted">Already have an account? <a href="{% url 'login' %}">Login</a></small>
